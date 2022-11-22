@@ -12,7 +12,9 @@ public class OrderStatus {
 
         @Id
         //@GeneratedValue(strategy=GenerationType.AUTO)
-        private Long id;
+        private String id;
 
-
+        @Message
+        //@GeneratedValue(strategy=GenerationType.AUTO)
+        private String message;
 }

@@ -22,6 +22,7 @@
         data: () => ({
             headers: [
                 { text: "id", value: "id" },
+                { text: "message", value: "message" },
             ],
             orderStatus : [],
         }),

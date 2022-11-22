@@ -23,23 +23,6 @@ public class PolicyHandler{
     @StreamListener(KafkaProcessor.INPUT)
     public void whatever(@Payload String eventString){}
 
-    @StreamListener(value=KafkaProcessor.INPUT, condition="headers['type']=='ChangedStatus'")
-    public void wheneverChangedStatus_ChangeStatus(@Payload ChangedStatus changedStatus){
-
-        ChangedStatus event = changedStatus;
-        System.out.println("\n\n##### listener ChangeStatus : " + changedStatus + "\n\n");
-
-
-        
-
-        // Sample Logic //
-        Order.changeStatus(event);
-        
-
-        
-
-    }
-
 }
 
 

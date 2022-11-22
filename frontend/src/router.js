@@ -8,15 +8,11 @@ Vue.use(Router);
 import OrderManager from "./components/listers/OrderCards"
 import OrderDetail from "./components/listers/OrderDetail"
 
-import MenuView from "./components/MenuView"
-import MenuViewDetail from "./components/MenuViewDetail"
 import OrderStatusView from "./components/OrderStatusView"
 import OrderStatusViewDetail from "./components/OrderStatusViewDetail"
 import StoreManageManager from "./components/listers/StoreManageCards"
 import StoreManageDetail from "./components/listers/StoreManageDetail"
 
-import OrderDetailView from "./components/OrderDetailView"
-import OrderDetailViewDetail from "./components/OrderDetailViewDetail"
 import PaymentManager from "./components/listers/PaymentCards"
 import PaymentDetail from "./components/listers/PaymentDetail"
 
@@ -46,16 +42,6 @@ export default new Router({
             },
 
             {
-                path: '/menus',
-                name: 'MenuView',
-                component: MenuView
-            },
-            {
-                path: '/menus/:id',
-                name: 'MenuViewDetail',
-                component: MenuViewDetail
-            },
-            {
                 path: '/orderStatuses',
                 name: 'OrderStatusView',
                 component: OrderStatusView
@@ -76,16 +62,6 @@ export default new Router({
                 component: StoreManageDetail
             },
 
-            {
-                path: '/orderDetails',
-                name: 'OrderDetailView',
-                component: OrderDetailView
-            },
-            {
-                path: '/orderDetails/:id',
-                name: 'OrderDetailViewDetail',
-                component: OrderDetailViewDetail
-            },
             {
                 path: '/payments',
                 name: 'PaymentManager',

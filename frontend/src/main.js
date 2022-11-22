@@ -46,11 +46,9 @@ const pluralCaseList = []
 
 pluralCaseList.push( {plural: "orders", pascal: "Order"} )
 
-pluralCaseList.push( {plural: "menus", pascal: "Menu"} )
 pluralCaseList.push( {plural: "orderStatuses", pascal: "OrderStatus"} )
 pluralCaseList.push( {plural: "storeManages", pascal: "StoreManage"} )
 
-pluralCaseList.push( {plural: "orderDetails", pascal: "OrderDetail"} )
 pluralCaseList.push( {plural: "payments", pascal: "Payment"} )
 
 pluralCaseList.push( {plural: "messages", pascal: "Message"} )

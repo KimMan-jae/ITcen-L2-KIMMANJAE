@@ -76,27 +76,6 @@ public class Order  {
 
 
 
-    public static void changeStatus(ChangedStatus changedStatus){
-
-        /** Example 1:  new item 
-        Order order = new Order();
-        repository().save(order);
-
-        */
-
-        /** Example 2:  finding and process
-        
-        repository().findById(changedStatus.get???()).ifPresent(order->{
-            
-            order // do something
-            repository().save(order);
-
-
-         });
-        */
-
-        
-    }
 
 
 }

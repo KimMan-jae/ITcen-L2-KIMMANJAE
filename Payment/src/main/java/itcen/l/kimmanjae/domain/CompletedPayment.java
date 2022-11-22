@@ -1,0 +1,26 @@
+package itcen.l.kimmanjae.domain;
+
+import itcen.l.kimmanjae.domain.*;
+import itcen.l.kimmanjae.infra.AbstractEvent;
+import java.util.*;
+import lombok.*;
+
+@Data
+@ToString
+public class CompletedPayment extends AbstractEvent {
+
+    private String id;
+    private String orderId;
+    private String customerId;
+    private String menuId;
+    private String qty;
+    private String address;
+    private String message;
+
+    public CompletedPayment(Payment aggregate){
+        super(aggregate);
+    }
+    public CompletedPayment(){
+        super();
+    }
+}

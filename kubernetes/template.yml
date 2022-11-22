@@ -1,0 +1,342 @@
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: Order
+  labels:
+    app: Order
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: Order
+  template:
+    metadata:
+      labels:
+        app: Order
+    spec:
+      containers:
+        - name: Order
+          image: username/Order:latest
+          ports:
+            - containerPort: 8080
+          readinessProbe:
+            httpGet:
+              path: '/actuator/health'
+              port: 8080
+            initialDelaySeconds: 10
+            timeoutSeconds: 2
+            periodSeconds: 5
+            failureThreshold: 10
+          livenessProbe:
+            httpGet:
+              path: '/actuator/health'
+              port: 8080
+            initialDelaySeconds: 120
+            timeoutSeconds: 2
+            periodSeconds: 5
+            failureThreshold: 5
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: StoreManage
+  labels:
+    app: StoreManage
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: StoreManage
+  template:
+    metadata:
+      labels:
+        app: StoreManage
+    spec:
+      containers:
+        - name: StoreManage
+          image: username/StoreManage:latest
+          ports:
+            - containerPort: 8080
+          readinessProbe:
+            httpGet:
+              path: '/actuator/health'
+              port: 8080
+            initialDelaySeconds: 10
+            timeoutSeconds: 2
+            periodSeconds: 5
+            failureThreshold: 10
+          livenessProbe:
+            httpGet:
+              path: '/actuator/health'
+              port: 8080
+            initialDelaySeconds: 120
+            timeoutSeconds: 2
+            periodSeconds: 5
+            failureThreshold: 5
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: Payment
+  labels:
+    app: Payment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: Payment
+  template:
+    metadata:
+      labels:
+        app: Payment
+    spec:
+      containers:
+        - name: Payment
+          image: username/Payment:latest
+          ports:
+            - containerPort: 8080
+          readinessProbe:
+            httpGet:
+              path: '/actuator/health'
+              port: 8080
+            initialDelaySeconds: 10
+            timeoutSeconds: 2
+            periodSeconds: 5
+            failureThreshold: 10
+          livenessProbe:
+            httpGet:
+              path: '/actuator/health'
+              port: 8080
+            initialDelaySeconds: 120
+            timeoutSeconds: 2
+            periodSeconds: 5
+            failureThreshold: 5
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: Message
+  labels:
+    app: Message
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: Message
+  template:
+    metadata:
+      labels:
+        app: Message
+    spec:
+      containers:
+        - name: Message
+          image: username/Message:latest
+          ports:
+            - containerPort: 8080
+          readinessProbe:
+            httpGet:
+              path: '/actuator/health'
+              port: 8080
+            initialDelaySeconds: 10
+            timeoutSeconds: 2
+            periodSeconds: 5
+            failureThreshold: 10
+          livenessProbe:
+            httpGet:
+              path: '/actuator/health'
+              port: 8080
+            initialDelaySeconds: 120
+            timeoutSeconds: 2
+            periodSeconds: 5
+            failureThreshold: 5
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: RiderManage
+  labels:
+    app: RiderManage
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: RiderManage
+  template:
+    metadata:
+      labels:
+        app: RiderManage
+    spec:
+      containers:
+        - name: RiderManage
+          image: username/RiderManage:latest
+          ports:
+            - containerPort: 8080
+          readinessProbe:
+            httpGet:
+              path: '/actuator/health'
+              port: 8080
+            initialDelaySeconds: 10
+            timeoutSeconds: 2
+            periodSeconds: 5
+            failureThreshold: 10
+          livenessProbe:
+            httpGet:
+              path: '/actuator/health'
+              port: 8080
+            initialDelaySeconds: 120
+            timeoutSeconds: 2
+            periodSeconds: 5
+            failureThreshold: 5
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: Coupon
+  labels:
+    app: Coupon
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: Coupon
+  template:
+    metadata:
+      labels:
+        app: Coupon
+    spec:
+      containers:
+        - name: Coupon
+          image: username/Coupon:latest
+          ports:
+            - containerPort: 8080
+          readinessProbe:
+            httpGet:
+              path: '/actuator/health'
+              port: 8080
+            initialDelaySeconds: 10
+            timeoutSeconds: 2
+            periodSeconds: 5
+            failureThreshold: 10
+          livenessProbe:
+            httpGet:
+              path: '/actuator/health'
+              port: 8080
+            initialDelaySeconds: 120
+            timeoutSeconds: 2
+            periodSeconds: 5
+            failureThreshold: 5
+
+
+---
+
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: Order
+  labels:
+    app: Order
+spec:
+  ports:
+    - port: 8080
+      targetPort: 8080
+  selector:
+    app: Order
+
+
+---
+
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: StoreManage
+  labels:
+    app: StoreManage
+spec:
+  ports:
+    - port: 8080
+      targetPort: 8080
+  selector:
+    app: StoreManage
+
+
+---
+
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: Payment
+  labels:
+    app: Payment
+spec:
+  ports:
+    - port: 8080
+      targetPort: 8080
+  selector:
+    app: Payment
+
+
+---
+
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: Message
+  labels:
+    app: Message
+spec:
+  ports:
+    - port: 8080
+      targetPort: 8080
+  selector:
+    app: Message
+
+
+---
+
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: RiderManage
+  labels:
+    app: RiderManage
+spec:
+  ports:
+    - port: 8080
+      targetPort: 8080
+  selector:
+    app: RiderManage
+
+
+---
+
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: Coupon
+  labels:
+    app: Coupon
+spec:
+  ports:
+    - port: 8080
+      targetPort: 8080
+  selector:
+    app: Coupon
+

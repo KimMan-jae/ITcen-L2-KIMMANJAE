@@ -1,0 +1,98 @@
+server:
+  port: 8088
+
+---
+
+spring:
+  profiles: default
+  cloud:
+    gateway:
+      routes:
+        - id: Order
+          uri: http://localhost:8081
+          predicates:
+            - Path=/orders/**, /menus/**, /orderStatuses/**
+        - id: StoreManage
+          uri: http://localhost:8082
+          predicates:
+            - Path=/storeManages/**, /orderDetails/**
+        - id: Payment
+          uri: http://localhost:8083
+          predicates:
+            - Path=/payments/**, 
+        - id: Message
+          uri: http://localhost:8084
+          predicates:
+            - Path=/messages/**, 
+        - id: RiderManage
+          uri: http://localhost:8085
+          predicates:
+            - Path=/riderManages/**, 
+        - id: Coupon
+          uri: http://localhost:8086
+          predicates:
+            - Path=/couponManages/**, 
+        - id: frontend
+          uri: http://localhost:8080
+          predicates:
+            - Path=/**
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins:
+              - "*"
+            allowedMethods:
+              - "*"
+            allowedHeaders:
+              - "*"
+            allowCredentials: true
+
+
+---
+
+spring:
+  profiles: docker
+  cloud:
+    gateway:
+      routes:
+        - id: Order
+          uri: http://order:8080
+          predicates:
+            - Path=/orders/**, /menus/**, /orderStatuses/**
+        - id: StoreManage
+          uri: http://storeManage:8080
+          predicates:
+            - Path=/storeManages/**, /orderDetails/**
+        - id: Payment
+          uri: http://payment:8080
+          predicates:
+            - Path=/payments/**, 
+        - id: Message
+          uri: http://message:8080
+          predicates:
+            - Path=/messages/**, 
+        - id: RiderManage
+          uri: http://riderManage:8080
+          predicates:
+            - Path=/riderManages/**, 
+        - id: Coupon
+          uri: http://coupon:8080
+          predicates:
+            - Path=/couponManages/**, 
+        - id: frontend
+          uri: http://frontend:8080
+          predicates:
+            - Path=/**
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins:
+              - "*"
+            allowedMethods:
+              - "*"
+            allowedHeaders:
+              - "*"
+            allowCredentials: true
+
+server:
+  port: 8080

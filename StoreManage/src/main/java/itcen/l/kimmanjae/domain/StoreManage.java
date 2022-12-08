@@ -75,9 +75,11 @@ public class StoreManage  {
         // it is NOT A GOOD PRACTICE. instead, Event-Policy mapping is recommended.
 
         itcen.l.kimmanjae.external.CancelOrderCommand cancelOrderCommand = new itcen.l.kimmanjae.external.CancelOrderCommand();
+        cancelOrderCommand.setOrderId(getOrderId());
+        
         // mappings goes here
         StoreManageApplication.applicationContext.getBean(itcen.l.kimmanjae.external.OrderService.class)
-            .cancelOrder(/* get???(), */ cancelOrderCommand);
+            .cancelOrder(string.valueOf(getOrderId()), cancelOrderCommand);
 
 
 

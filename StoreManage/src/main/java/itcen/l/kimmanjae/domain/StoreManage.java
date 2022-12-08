@@ -116,11 +116,8 @@ public class StoreManage  {
 
     public static void receiveOrder(CompletedPayment completedPayment){
 
-        /** Example 1:  new item 
         StoreManage storeManage = new StoreManage();
         repository().save(storeManage);
-
-        */
 
         /** Example 2:  finding and process
         

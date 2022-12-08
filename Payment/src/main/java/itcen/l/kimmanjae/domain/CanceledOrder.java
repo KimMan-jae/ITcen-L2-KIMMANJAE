@@ -14,6 +14,15 @@ public class CanceledOrder extends AbstractEvent {
     private Integer qty;
     private String address;
     private String message;
+
+    public String getId()
+    {
+        return id;
+    }
+
+    public Integer getQty(){
+        return qty;
+    }
 }
 
 

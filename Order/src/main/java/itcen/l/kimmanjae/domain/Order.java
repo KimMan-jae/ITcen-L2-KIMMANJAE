@@ -73,11 +73,7 @@ public class Order  {
         return orderRepository;
     }
 
-
-
     public void cancelOrder(CancelOrderCommand cancelOrderCommand){
     }
-
-
 
 }

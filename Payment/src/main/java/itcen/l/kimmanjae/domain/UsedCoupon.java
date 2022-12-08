@@ -13,6 +13,14 @@ public class UsedCoupon extends AbstractEvent {
     private String orderId;
     private String menuId;
     private String qty;
+
+    public String getId(){
+    return id;
+    }
+
+    public String getOrderId(){
+    return orderId;
+    }
 }
 
 

@@ -30,9 +30,15 @@ public class Payment  {
     
     private String orderId;
     
+    public String getOrderId()
+    {
+        retrun orderId;
+    }
     
-    
-    
+    public void setOrderId(String value)
+    {
+        orderId = value;
+    }
     
     private String customerId;
     
@@ -48,9 +54,15 @@ public class Payment  {
     
     private String qty;
     
+    public String getQty()
+    {
+        retrun qty;
+    }
     
-    
-    
+    public void setQty(String value)
+    {
+        qty = value;
+    }
     
     private String address;
     
@@ -59,6 +71,22 @@ public class Payment  {
     
     
     private String message;
+    
+    
+    
+    
+    
+    private String couponId;
+
+    public String getCouponId()
+    {
+        retrun couponId;
+    }
+    
+    public void setCouponId(String value)
+    {
+        couponId = value;
+    }
 
     @PostPersist
     public void onPostPersist(){
@@ -84,11 +112,11 @@ public class Payment  {
 
     public static void cancelPayment(CanceledOrder canceledOrder){
 
-        /** Example 1:  new item 
         Payment payment = new Payment();
+        payment.setOrderId(canceledOrder.getId());
+        payment.setQty(-canceledOrder.getQty());
         repository().save(payment);
 
-        */
 
         /** Example 2:  finding and process
         
@@ -126,11 +154,10 @@ public class Payment  {
     }
     public static void setCoupon(UsedCoupon usedCoupon){
 
-        /** Example 1:  new item 
         Payment payment = new Payment();
+        payment.setOrderId(usedCoupon.getOrderId);
+        payment.setCouponId(usedCoupon.getCouponId());
         repository().save(payment);
-
-        */
 
         /** Example 2:  finding and process
         
@@ -147,11 +174,10 @@ public class Payment  {
     }
     public static void placedBasket(PlacedOrder placedOrder){
 
-        /** Example 1:  new item 
         Payment payment = new Payment();
+        payment.setOrderId(placedOrder.getId());
         repository().save(payment);
 
-        */
 
         /** Example 2:  finding and process
         

@@ -14,6 +14,11 @@ public class PlacedOrder extends AbstractEvent {
     private Integer qty;
     private String address;
     private String message;
+
+    public String getId()
+    {
+        return id;
+    }
 }
 
 

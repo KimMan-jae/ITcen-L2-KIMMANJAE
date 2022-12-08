@@ -78,11 +78,11 @@ public class Message  {
 
     public static void receiveMessage(RefusedOrder refusedOrder){
 
-        /** Example 1:  new item 
         Message message = new Message();
+        message.publisher = "RefusedOrder";
         repository().save(message);
 
-        */
+        
 
         /** Example 2:  finding and process
         
@@ -99,11 +99,9 @@ public class Message  {
     }
     public static void receiveMessage(CatchedFood catchedFood){
 
-        /** Example 1:  new item 
         Message message = new Message();
+        message.publisher = "CatchedFood";
         repository().save(message);
-
-        */
 
         /** Example 2:  finding and process
         
@@ -120,11 +118,9 @@ public class Message  {
     }
     public static void receiveMessage(RefundedPayment refundedPayment){
 
-        /** Example 1:  new item 
         Message message = new Message();
+        message.publisher = "RefundedPayment"
         repository().save(message);
-
-        */
 
         /** Example 2:  finding and process
         
@@ -141,11 +137,9 @@ public class Message  {
     }
     public static void receiveMessage(StartedCooking startedCooking){
 
-        /** Example 1:  new item 
         Message message = new Message();
+        message.publisher = "StartedCooking"
         repository().save(message);
-
-        */
 
         /** Example 2:  finding and process
         
@@ -162,11 +156,9 @@ public class Message  {
     }
     public static void receiveMessage(AcceptedOrder acceptedOrder){
 
-        /** Example 1:  new item 
         Message message = new Message();
+        message.publisher = "AcceptedOrder"
         repository().save(message);
-
-        */
 
         /** Example 2:  finding and process
         
@@ -183,11 +175,9 @@ public class Message  {
     }
     public static void receiveMessage(Delivered delivered){
 
-        /** Example 1:  new item 
         Message message = new Message();
+        message.publisher = "Delivered"
         repository().save(message);
-
-        */
 
         /** Example 2:  finding and process
         
@@ -204,11 +194,9 @@ public class Message  {
     }
     public static void receiveMessage(PickedDelivery pickedDelivery){
 
-        /** Example 1:  new item 
         Message message = new Message();
+        message.publisher = "PickedDelivery"
         repository().save(message);
-
-        */
 
         /** Example 2:  finding and process
         
@@ -225,11 +213,9 @@ public class Message  {
     }
     public static void receiveMessage(EndedCooking endedCooking){
 
-        /** Example 1:  new item 
         Message message = new Message();
+        message.publisher = "EndedCooking"
         repository().save(message);
-
-        */
 
         /** Example 2:  finding and process
         
@@ -246,11 +232,9 @@ public class Message  {
     }
     public static void receiveMessage(CompletedPayment completedPayment){
 
-        /** Example 1:  new item 
         Message message = new Message();
+        message.publisher = "CompletedPayment"
         repository().save(message);
-
-        */
 
         /** Example 2:  finding and process
         
@@ -267,11 +251,9 @@ public class Message  {
     }
     public static void receiveMessage(PlacedOrder placedOrder){
 
-        /** Example 1:  new item 
         Message message = new Message();
+        message.publisher = "PlacedOrder"
         repository().save(message);
-
-        */
 
         /** Example 2:  finding and process
         
@@ -288,11 +270,9 @@ public class Message  {
     }
     public static void receiveMessage(CanceledOrder canceledOrder){
 
-        /** Example 1:  new item 
         Message message = new Message();
+        message.publisher = "CanceledOrder"
         repository().save(message);
-
-        */
 
         /** Example 2:  finding and process
         

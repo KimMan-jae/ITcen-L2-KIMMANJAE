@@ -132,24 +132,14 @@ public class Payment  {
         
     }
     public static void cancelPayment(RefusedOrder refusedOrder){
-
-        /** Example 1:  new item 
-        Payment payment = new Payment();
-        repository().save(payment);
-
-        */
-
-        /** Example 2:  finding and process
-        
-        repository().findById(refusedOrder.get???()).ifPresent(payment->{
+        repository().findByOrderId(refusedOrder.getOrderId()).ifPresent(payment->{
             
-            payment // do something
-            repository().save(payment);
-
+            Payment refundPayment = new Payment();
+            refundPayment = payment;
+            refundPayment.setQty(-payment.getQty());
+            repository().save(refundpayment);
 
          });
-        */
-
         
     }
     public static void setCoupon(UsedCoupon usedCoupon){

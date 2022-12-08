@@ -14,6 +14,11 @@ public class RefusedOrder extends AbstractEvent {
     private String qty;
     private String address;
     private String message;
+    
+    public RefusedOrder(StoreManage aggregate){
+        super(aggregate);
+    }
+    public RefusedOrder(){
+        super();
+    }
 }
-
-

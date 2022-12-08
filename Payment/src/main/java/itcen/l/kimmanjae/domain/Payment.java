@@ -154,22 +154,10 @@ public class Payment  {
     }
     public static void setCoupon(UsedCoupon usedCoupon){
 
-        Payment payment = new Payment();
-        payment.setOrderId(usedCoupon.getOrderId);
-        payment.setCouponId(usedCoupon.getCouponId());
-        repository().save(payment);
-
-        /** Example 2:  finding and process
-        
-        repository().findById(usedCoupon.get???()).ifPresent(payment->{
-            
-            payment // do something
+        repository.findByMenuId(usedCoupon.getMenuId()).ifPresent(payment->{
+            payment.setCouponId(usedCoupon.getCouponId());
             repository().save(payment);
-
-
-         });
-        */
-
+        });
         
     }
     public static void placedBasket(PlacedOrder placedOrder){

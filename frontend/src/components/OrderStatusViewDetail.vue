@@ -6,6 +6,9 @@
         </v-card-title>
 
         <v-card-text>
+            <div>
+                <String label="Message" v-model="item.message" :editMode="editMode" @change="change" />
+            </div>
         </v-card-text>
     </v-card>
 

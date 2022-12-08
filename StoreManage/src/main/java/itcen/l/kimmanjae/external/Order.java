@@ -1,11 +1,9 @@
-package itcen.l.kimmanjae.domain;
+package itcen.l.kimmanjae.external;
 
-import itcen.l.kimmanjae.infra.AbstractEvent;
 import lombok.Data;
-import java.util.*;
-
+import java.util.Date;
 @Data
-public class CanceledOrder extends AbstractEvent {
+public class Order {
 
     private String id;
     private String customerId;
@@ -14,3 +12,5 @@ public class CanceledOrder extends AbstractEvent {
     private String address;
     private String message;
 }
+
+

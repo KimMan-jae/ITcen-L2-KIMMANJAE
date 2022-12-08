@@ -11,11 +11,11 @@ spring:
         - id: Order
           uri: http://localhost:8081
           predicates:
-            - Path=/orders/**, /menus/**, /orderStatuses/**
+            - Path=/orders/**, /orderStatuses/**
         - id: StoreManage
           uri: http://localhost:8082
           predicates:
-            - Path=/storeManages/**, /orderDetails/**
+            - Path=/storeManages/**, 
         - id: Payment
           uri: http://localhost:8083
           predicates:
@@ -58,11 +58,11 @@ spring:
         - id: Order
           uri: http://order:8080
           predicates:
-            - Path=/orders/**, /menus/**, /orderStatuses/**
+            - Path=/orders/**, /orderStatuses/**
         - id: StoreManage
           uri: http://storeManage:8080
           predicates:
-            - Path=/storeManages/**, /orderDetails/**
+            - Path=/storeManages/**, 
         - id: Payment
           uri: http://payment:8080
           predicates:

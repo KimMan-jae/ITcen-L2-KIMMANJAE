@@ -43,7 +43,7 @@ public class StoreManage  {
     
     
     
-    private String qty;
+    private Integer qty;
     
     
     
@@ -71,6 +71,15 @@ public class StoreManage  {
         issuedCoupon.publishAfterCommit();
 
 
+        //Following code causes dependency to external APIs
+        // it is NOT A GOOD PRACTICE. instead, Event-Policy mapping is recommended.
+
+        itcen.l.kimmanjae.external.CancelOrderCommand cancelOrderCommand = new itcen.l.kimmanjae.external.CancelOrderCommand();
+        // mappings goes here
+        StoreManageApplication.applicationContext.getBean(itcen.l.kimmanjae.external.OrderService.class)
+            .cancelOrder(/* get???(), */ cancelOrderCommand);
+
+
 
         StartedCooking startedCooking = new StartedCooking(this);
         startedCooking.publishAfterCommit();
@@ -89,6 +98,11 @@ public class StoreManage  {
 
         AcceptedOrder acceptedOrder = new AcceptedOrder(this);
         acceptedOrder.publishAfterCommit();
+
+        // Get request from Order
+        //itcen.l.kimmanjae.external.Order order =
+        //    Application.applicationContext.getBean(itcen.l.kimmanjae.external.OrderService.class)
+        //    .getOrder(/** mapping value needed */);
 
     }
 

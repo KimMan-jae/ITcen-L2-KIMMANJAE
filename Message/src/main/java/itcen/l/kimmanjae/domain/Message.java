@@ -1,6 +1,5 @@
 package itcen.l.kimmanjae.domain;
 
-import itcen.l.kimmanjae.domain.ChangedStatus;
 import itcen.l.kimmanjae.domain.SendFeedback;
 import itcen.l.kimmanjae.MessageApplication;
 import javax.persistence.*;
@@ -62,11 +61,6 @@ public class Message  {
 
     @PostPersist
     public void onPostPersist(){
-
-
-        ChangedStatus changedStatus = new ChangedStatus(this);
-        changedStatus.publishAfterCommit();
-
 
 
         SendFeedback sendFeedback = new SendFeedback(this);

@@ -107,6 +107,8 @@ public class StoreManage  {
     }
     @PreRemove
     public void onPreRemove(){
+        RefusedOrder refusedOrder = new RefusedOrder(this);
+        refusedOrder.publishAfterCommit();
     }
 
     public static StoreManageRepository repository(){

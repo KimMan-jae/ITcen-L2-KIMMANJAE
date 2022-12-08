@@ -61,6 +61,20 @@
         </v-card-actions>
         <v-card-actions>
             <v-spacer></v-spacer>
+            <v-btn
+                    v-if="!editMode"
+                    color="deep-purple lighten-2"
+                    text
+                    @click="openCancelOrder"
+            >
+                CancelOrder
+            </v-btn>
+            <v-dialog v-model="cancelOrderDiagram" width="500">
+                <CancelOrderCommand
+                        @closeDialog="closeCancelOrder"
+                        @cancelOrder="cancelOrder"
+                ></CancelOrderCommand>
+            </v-dialog>
         </v-card-actions>
 
         <v-snackbar
@@ -98,6 +112,7 @@
                 timeout: 5000,
                 text: ''
             },
+            cancelOrderDiagram: false,
         }),
         computed:{
         },
@@ -191,6 +206,32 @@
             },
             change(){
                 this.$emit('input', this.value);
+            },
+            async cancelOrder(params) {
+                try {
+                    if(!this.offline) {
+                        var temp = await axios.put(axios.fixUrl(this.value._links['cancelorder'].href), params)
+                        for(var k in temp.data) {
+                            this.value[k]=temp.data[k];
+                        }
+                    }
+
+                    this.editMode = false;
+                    this.closeCancelOrder();
+                } catch(e) {
+                    this.snackbar.status = true
+                    if(e.response && e.response.data.message) {
+                        this.snackbar.text = e.response.data.message
+                    } else {
+                        this.snackbar.text = e
+                    }
+                }
+            },
+            openCancelOrder() {
+                this.cancelOrderDiagram = true;
+            },
+            closeCancelOrder() {
+                this.cancelOrderDiagram = false;
             },
         },
     }

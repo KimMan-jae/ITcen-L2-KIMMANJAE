@@ -75,6 +75,8 @@ public class Order  {
 
 
 
+    public void cancelOrder(CancelOrderCommand cancelOrderCommand){
+    }
 
 
 

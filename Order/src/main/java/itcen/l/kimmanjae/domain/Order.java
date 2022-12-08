@@ -74,6 +74,9 @@ public class Order  {
     }
 
     public void cancelOrder(CancelOrderCommand cancelOrderCommand){
+        Id = cancelOrderCommand.orderId;
+        CanceledOrder canceledOrder = new CanceledOrder(this);
+        canceledOrder.publishAfterCommit();
     }
 
 }

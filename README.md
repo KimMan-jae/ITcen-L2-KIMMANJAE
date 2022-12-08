@@ -1,16 +1,59 @@
 # ITcen-L2-KIMMANJAE
-요구사항 수정
-![image](https://user-images.githubusercontent.com/47963629/203260833-a6d65b8c-5044-48ee-bc9e-703c5b16874d.png)
-도메인 모델링
-![image](https://user-images.githubusercontent.com/47963629/203260924-5c8a6b37-e452-4e0e-8f54-09e1ebfcffa8.png)
+![image](https://user-images.githubusercontent.com/487999/79708354-29074a80-82fa-11ea-80df-0db3962fb453.png)
 
-1. Saga(Pub/Sub)
-Saga Pattern : 분산 트랜잭션 시나리오에서 마이크로 서비스 간의 데이터 일관성을 관리하는 방법
-saga는 각 서비스를 업데이트하고 메시지 또는 이벤트를 게시하여 다음 트랜잭션 단계를 트리거하는 일련의 트랜잭션
-Pub/Sub
-![pubsub3](https://user-images.githubusercontent.com/47963629/205582859-3cf64a8e-5396-49c8-9fcc-8ba25ed53f39.png)
+# 예제 - 음식배달
+
+본 예제는 MSA/DDD/Event Storming/EDA 를 포괄하는 분석/설계/구현/운영 전단계를 커버하도록 구성한 예제입니다.
+이는 클라우드 네이티브 애플리케이션의 개발에 요구되는 체크포인트들을 통과하기 위한 예시 답안을 포함합니다.
+
+# 서비스 시나리오
+
+기능적 요구사항
+1. 고객이 메뉴를 선택하여 주문한다.
+2. 고객이 선택한 메뉴에 대해 결제한다.
+3. 주문이 되면 주문 내역이 입점상점주인에게 주문정보가 전달된다.
+4. 상점주는 주문을 수락하거나 거절할 수 있다.
+5. 상점주는 요리시작때와 완료 시점에 시스템에 상태를 입력한다.
+6. 고객은 아직 요리가 시작되지 않은 주문은 취소할 수 있다.
+7. 요리가 완료되면 고객의 지역 인근의 라이더들에 의해 배송건 조회가 가능하다.
+8. 라이더가 해당 요리를 pick 한후, pick했다고 앱을 통해 통보한다.
+9. 고객이 주문상태를 중간중간 조회한다.
+10. 주문상태가 바뀔 때 마다 카톡으로 알림을 보낸다.
+11. 고객이 요리를 배달 받으면 배송확인 버튼을 탭하여, 모든 거래가 완료된다.
+
+추가사항 1 
+
+추가사항 2 
+
+
+
+# 체크포인트
+1. Saga (Pub / Sub)
 2. CQRS
-Command and Query Responsibility Segregation(명령과 조회의 책임 분리)
-Read model, 초록색스티커
 3. Compensation / Correlation
-![ComCor1](https://user-images.githubusercontent.com/47963629/205582988-9e5f82a2-0d3a-4a82-9798-b897b6064c25.png)
+4. Request / Response
+5. Circuit Breaker
+6. Gateway / Ingress
+
+# Saga (Pub / Sub)
+상황1 : 
+
+상황2 : 
+
+# CQRS
+
+
+# Compensation / Correlation
+
+
+# Request / Response
+
+
+# Circuit Breaker
+
+
+# Gateway / Ingress
+
+# 추가사항 1 
+
+# 추가사항 2 

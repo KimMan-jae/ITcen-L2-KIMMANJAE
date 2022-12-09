@@ -74,9 +74,14 @@ public class Order  {
     }
 
     public void cancelOrder(CancelOrderCommand cancelOrderCommand){
-        Id = cancelOrderCommand.orderId;
-        CanceledOrder canceledOrder = new CanceledOrder(this);
-        canceledOrder.publishAfterCommit();
+        if(Id == cancelOrderCommand.orderId) {
+            System.out.println("This Order Already Started Cooking!");
+        } else {
+            repository.findById(cancelOrderCommand.getOrderId()).ifPresent(order->{
+                order.setQty(-order.getQty());
+                repository().save(order);
+            });
+        }
     }
 
 }

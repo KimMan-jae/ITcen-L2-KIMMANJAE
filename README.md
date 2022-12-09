@@ -18,14 +18,15 @@
 7. 요리가 시작되면 *(요리가 완료되면) 고객의 지역 인근의 라이더들에 의해 배송건 조회가 가능하다.
 8. 라이더가 해당 주문을 배송(pick)할지 선택한다. *(라이더가 해당 요리를 pick 한후,)
    배송 하기로 한 주문에 대해 요리 catch 한 후, catch했다고 앱을 통해 통보한다. *(pick했다고 앱을 통해 통보한다.)
-9. 고객이 주문상태를 중간중간 조회한다.
-10. 주문상태가 바뀔 때 마다 카톡으로 알림을 보낸다.
-11. 라이더가 배송이 완료되면 *(고객이 요리를 배달 받으면) 배송확인 버튼을 탭하여 완료된다.
+9. 고객이 주문상태가 바뀔 때 마다 주문상태를 알 수 있도록 한다. 
+10. 라이더가 배송이 완료되면 *(고객이 요리를 배달 받으면) 배송확인 버튼을 탭하여 완료된다.
 
 추가사항 1 
 요리가 완료되면 쿠폰을 발급한다. 발급한 쿠폰은 같은 해당 매장에서 결제시 사용 가능하다.
 추가사항 2 
 고객, 매장, 라이더의 모든 이벤트에 대한 정보를 수집하여, ESG 경영팀에서 사용하는 분석툴에 제공한다.
+
+![전체](https://user-images.githubusercontent.com/47963629/206594496-193a4491-f5f9-4bb7-bfda-865ccbd8c28d.png)
 
 # 체크포인트
 1. Saga (Pub / Sub)
@@ -36,24 +37,35 @@
 6. Gateway / Ingress
 
 # Saga (Pub / Sub)
-상황1 : 
+- 고객이 발급받은 쿠폰을 사용(UsedCoupon)하면 해당하는 메뉴에 적용된다  
+![PUBSUB1](https://user-images.githubusercontent.com/47963629/206594529-2c937c9f-b717-4c31-9f4a-6f15bfdca837.png)
 
-상황2 : 
+![PUBSUB2](https://user-images.githubusercontent.com/47963629/206594565-756aa32f-1924-4b66-984b-5b3f0dad9b33.png)
 
 # CQRS
+- 고객이 주문상태가 바뀔 때(PlacedOrder, CanceledOrder, CompletePayment, etc...) 마다 주문상태를 알 수 있도록 한다.
+![CQRS1](https://user-images.githubusercontent.com/47963629/206594592-61408177-84e2-4eba-be08-4e24aab7ca73.png)
 
+![CQRS2](https://user-images.githubusercontent.com/47963629/206594595-8e9dd066-996f-469e-9064-46605d9c497d.png)
+
+![CQRS3](https://user-images.githubusercontent.com/47963629/206594603-e8edd431-6358-4a97-8f45-1ab6169e08b2.png)
 
 # Compensation / Correlation
+- 상점주가 주문을 거절(RefuseOrder)하면 결제를 취소(CancelPayment)한다
+![COMCOR1](https://user-images.githubusercontent.com/47963629/206594635-f74adc74-1e1a-4cd1-bcc3-36b64be87d23.png)
 
+![COMCOR2](https://user-images.githubusercontent.com/47963629/206594654-347dcd29-43c5-44a6-9fc7-f20014af3217.png)
 
 # Request / Response
+- 요리가 시작(StartedCooking)되면 주문을 취소(CancelOrder)할 수 없다
+![REQRES1](https://user-images.githubusercontent.com/47963629/206594699-36fccf36-8f2f-49e5-ad84-d208ebe1148b.png)
 
+![REQRES2](https://user-images.githubusercontent.com/47963629/206594710-5051ab50-b429-4e82-a758-5cd038601e56.png)
 
 # Circuit Breaker
 
 
 # Gateway / Ingress
+- API Gateway 를 통하여 진입점을 통일한다.
+![GATEWAYINGRESS](https://user-images.githubusercontent.com/47963629/206594719-9d83b3e8-e067-4518-983b-6fd3fbd34f85.png)
 
-# 추가사항 1 
-
-# 추가사항 2 

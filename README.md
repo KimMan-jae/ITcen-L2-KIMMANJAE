@@ -23,6 +23,7 @@
 
 추가사항 1 
 요리가 완료되면 쿠폰을 발급한다. 발급한 쿠폰은 같은 해당 매장에서 결제시 사용 가능하다.
+
 추가사항 2 
 고객, 매장, 라이더의 모든 이벤트에 대한 정보를 수집하여, ESG 경영팀에서 사용하는 분석툴에 제공한다.
 
@@ -37,7 +38,7 @@
 6. Gateway / Ingress
 
 # Saga (Pub / Sub)
-- 고객이 발급받은 쿠폰을 사용(UsedCoupon)하면 해당하는 메뉴에 적용된다  
+- 고객이 발급받은 쿠폰을 사용(UsedCoupon)하면 해당하는 메뉴에 적용된다.
 ![PUBSUB1](https://user-images.githubusercontent.com/47963629/206594529-2c937c9f-b717-4c31-9f4a-6f15bfdca837.png)
 
 ![PUBSUB2](https://user-images.githubusercontent.com/47963629/206594565-756aa32f-1924-4b66-984b-5b3f0dad9b33.png)
@@ -51,19 +52,22 @@
 ![CQRS3](https://user-images.githubusercontent.com/47963629/206594603-e8edd431-6358-4a97-8f45-1ab6169e08b2.png)
 
 # Compensation / Correlation
-- 상점주가 주문을 거절(RefuseOrder)하면 결제를 취소(CancelPayment)한다
+- 상점주가 주문을 거절(RefuseOrder)하면 결제를 취소(CancelPayment)한다.
 ![COMCOR1](https://user-images.githubusercontent.com/47963629/206594635-f74adc74-1e1a-4cd1-bcc3-36b64be87d23.png)
 
 ![COMCOR2](https://user-images.githubusercontent.com/47963629/206594654-347dcd29-43c5-44a6-9fc7-f20014af3217.png)
 
 # Request / Response
-- 요리가 시작(StartedCooking)되면 주문을 취소(CancelOrder)할 수 없다
+- 요리가 시작(StartedCooking)되면 주문을 취소(CancelOrder)할 수 없다.
 ![REQRES1](https://user-images.githubusercontent.com/47963629/206594699-36fccf36-8f2f-49e5-ad84-d208ebe1148b.png)
 
 ![REQRES2](https://user-images.githubusercontent.com/47963629/206599320-4c3affef-7462-41e6-9c12-3e8fd16bacab.png)
 
 # Circuit Breaker
+- 요리를 시작(StartCooking)할 때, 주문이 취소(CanceledOrder)되었는지 확인한다. 3초 이상 응답이 없는 경우, 취소 된 것으로 간주한다.
+![CIRCUITBREAKER1](https://user-images.githubusercontent.com/47963629/206603916-71518226-8aef-4092-95e3-28cd5471836c.png)
 
+![CIRCUITBREAKER2](https://user-images.githubusercontent.com/47963629/206603925-0badd066-7a4e-40eb-b476-28e0a758ecba.png)
 
 # Gateway / Ingress
 - API Gateway 를 통하여 진입점을 통일한다.

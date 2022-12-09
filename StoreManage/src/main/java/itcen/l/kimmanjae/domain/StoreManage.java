@@ -62,7 +62,18 @@ public class StoreManage  {
     
     
     private String customerAddress;
+    
+    @PrePersist
+    public void onPrePersist() {
+        // Get request from Order
+        Order order =
+           Application.applicationContext.getBean(OrderService.class)
+           .getOrder(string.valueOf(getOrderId()), getQty());
 
+        if(order.getQty() < 0) throw new RuntimeException("Already Canceled!");
+
+    }
+    
     @PostPersist
     public void onPostPersist(){
 

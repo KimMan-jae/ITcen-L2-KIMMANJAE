@@ -60,7 +60,7 @@
 - 요리가 시작(StartedCooking)되면 주문을 취소(CancelOrder)할 수 없다
 ![REQRES1](https://user-images.githubusercontent.com/47963629/206594699-36fccf36-8f2f-49e5-ad84-d208ebe1148b.png)
 
-![REQRES2](https://user-images.githubusercontent.com/47963629/206594710-5051ab50-b429-4e82-a758-5cd038601e56.png)
+![REQRES2](https://user-images.githubusercontent.com/47963629/206599320-4c3affef-7462-41e6-9c12-3e8fd16bacab.png)
 
 # Circuit Breaker
 
